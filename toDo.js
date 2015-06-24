@@ -31,4 +31,20 @@ $(document).ready(function(){
 		$('.list-items').map( function(){return $(this).val(); }).get();
 		console.log($('.list-items').map( function(){return $(this).val(); }).get());
 	});
+
+	$( "#get-btn" ).on( "click", function() {
+		$.ajax( "/js/TodoJquery/personDetails.php")
+		.done(function(data) {
+			//console.log(data);
+			//var persons = JSON.parse(data);
+			console.log(data);
+			for (var i = 0; i < data.length; i++) {
+				console.log(data[i]['name']);
+			}; 
+		})
+		.fail(function(error) {
+			console.log(error);
+			console.log("In failure");
+		});
+	});
 });

@@ -1,5 +1,6 @@
 <?php include 'header.php';?>
 <?php include 'leftNav.php';?>
+
 <div class="col-md-9">
 	<div class="row"> 
 		<div class="col-md-6">
@@ -15,9 +16,11 @@
 
 	<div class="row">
 		<button class="btn btn-success" id="save-btn">Save</button>
+		<button class="btn btn-primary" id="get-btn">Get People Data</button>
 	</div>
-</div>
 
+	<div id="ajax-div"> </div>
+</div>
 
 </div> <!-- Closure of leftnav row div -->
 <?php include 'footer.php';?>

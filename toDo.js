@@ -32,17 +32,39 @@ $(document).ready(function(){
 		console.log($('.list-items').map( function(){return $(this).val(); }).get());
 	});
 
-	$( "#get-btn" ).on( "click", function() {
+	$( "#get-btn" ).on( "click", function() { 
+		$(".ajax-image").removeClass("hide");
+		var tableHtml = '<table class="table table-bordered"> \
+    <thead> \
+      <tr>\
+        <th>Firstname</th>\
+        <th>Age</th>\
+        <th>Sex</th>\
+      </tr>\
+    </thead>\
+    <tbody>\
+' ;
 		$.ajax( "/js/TodoJquery/personDetails.php")
 		.done(function(data) {
-			//console.log(data);
-			//var persons = JSON.parse(data);
+			$(".ajax-image").addClass("hide");
 			console.log(data);
 			for (var i = 0; i < data.length; i++) {
-				console.log(data[i]['name']);
-			}; 
+				//console.log(data[i]['name']);
+				tableHtml = tableHtml + ' \
+					<tr>\
+        				<td>' + data[i]['name'] + '</td>\
+        				<td>' + data[i]['age'] + '</td>\
+        				<td>' + data[i]['sex'] + '</td>\
+      				</tr>\
+				';
+			}
+			tableHtml = tableHtml +  '</tbody> </table>';
+			console.log("Table is ");
+			console.log(tableHtml); 
+			$("#ajax-div").html(tableHtml);
 		})
 		.fail(function(error) {
+			$(".ajax-image").removeClass("hide");
 			console.log(error);
 			console.log("In failure");
 		});

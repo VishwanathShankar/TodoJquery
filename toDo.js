@@ -33,8 +33,9 @@ $(document).ready(function(){
 	});
 
 	$( "#get-btn" ).on( "click", function() { 
+		$(".posi").show();
 		$(".ajax-image").removeClass("hide");
-		var tableHtml = '<table class="table table-bordered"> \
+		var tableHtml = '<table class="table table-bordered allign"> \
     <thead> \
       <tr>\
         <th>Firstname</th>\
@@ -46,10 +47,11 @@ $(document).ready(function(){
 ' ;
 		$.ajax( "/js/TodoJquery/personDetails.php")
 		.done(function(data) {
+			$(".posi").hide();
 			$(".ajax-image").addClass("hide");
 			console.log(data);
 			for (var i = 0; i < data.length; i++) {
-				//console.log(data[i]['name']);
+				
 				tableHtml = tableHtml + ' \
 					<tr>\
         				<td>' + data[i]['name'] + '</td>\
@@ -64,6 +66,7 @@ $(document).ready(function(){
 			$("#ajax-div").html(tableHtml);
 		})
 		.fail(function(error) {
+			$(".posi").show();
 			$(".ajax-image").removeClass("hide");
 			console.log(error);
 			console.log("In failure");

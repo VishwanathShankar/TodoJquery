@@ -16,17 +16,19 @@
 
 	<div class="manasa-wrapper"></div>
 
-	<div class="row">
+	<div class="row btn-row">
 		<button class="btn btn-success" id="save-btn">Save</button>
 		<button class="btn btn-primary" id="get-btn">Get People Data</button>
 	</div>
-	<div class="row">
-		<div class="ajax-image hide"></div>
-	</div>
-	<div id="ajax-div"> 
+<div id="ajax-div"> 
 
 	</div>
+	
 </div>
 
+
 </div> <!-- Closure of leftnav row div -->
+	<div class="row posi">
+		<div class="ajax-image"></div>
+	</div>
 <?php include 'footer.php';?>
